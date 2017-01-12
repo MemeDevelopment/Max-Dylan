@@ -1,0 +1,63 @@
+/**
+ * Created by Dylan on 2017-01-08.
+ */
+import com.sun.org.apache.xpath.internal.SourceTree;
+
+import java.util.Scanner;
+
+public class TempConverter {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        boolean running = true;
+        while (running) {
+            System.out.println("Type 'C' for °C to °F");
+            System.out.println("Type 'F' for °F to °C");
+            System.out.println("Type 'E' to exit");
+            System.out.print("\n");
+            String unit = in.next();
+            if (unit.equalsIgnoreCase("C")) {
+                System.out.println("--=| CONVERTING TO FAHRENHEIT |=--\n");
+                System.out.println("Input a temperature in °C");
+                double amount = in.nextDouble();
+                TempConverter.convertToF(amount);
+            } else if (unit.equalsIgnoreCase("F")) {
+                System.out.println("--=| CONVERTING TO CELSIUS |=--\n");
+                System.out.println("Input a temperature in °F");
+                double amount = in.nextDouble();
+                TempConverter.convertToC(amount);
+            } else if (unit.equalsIgnoreCase("E") || (unit.equalsIgnoreCase("Kys"))) {
+                running = false;
+                System.out.println("No u");
+            }
+        }
+    }
+
+    /**
+     * I totally didn't copy everything here from Jonathan don't sue pls
+     * <3 u no homo
+     **/
+
+    public static void convertToF(double Celsius) {
+        double DegFahrenheit = Celsius * 9 / 5 + 32;
+        System.out.println("\n");
+        System.out.printf("%.2f°C is equal to %.5f°F\n", Celsius, DegFahrenheit);
+        System.out.println("\n");
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void convertToC(double Fahrenheit) {
+        double DegCelsius = ( Fahrenheit - 32 ) * 5 / 9;
+        System.out.println("\n");
+        System.out.printf("%.2f°F is equal to %.5f°C\n", Fahrenheit, DegCelsius);
+        System.out.println("\n");
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
